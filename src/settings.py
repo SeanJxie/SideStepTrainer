@@ -27,7 +27,7 @@ PROJECTILE = {
 
 TARGET = {
     'RADIUS': 10,
-    'COL': (0, 0, 255)  # Blue
+    'COL': (255, 255, 0)  # Yellow
 }
 
 GAME = {

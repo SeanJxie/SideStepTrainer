@@ -46,6 +46,7 @@ class SideStepTrainerProgram(Window):  # Child class of arcade's Window class wi
         self.projectile_emitter.render_existing_projectiles()
 
         utils.render_score(self.points)
+        utils.render_fs_disclaimer()
 
     def on_update(self, delta_time: float):  # Main update loop
         if utils.detect_collision(self.controlled_player, self.projectile_emitter.get_projectile_list()):

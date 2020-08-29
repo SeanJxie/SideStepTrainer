@@ -1,5 +1,5 @@
 from math import sin, cos, atan2, degrees, radians
-from arcade import draw_circle_filled, get_display_size
+from arcade import draw_circle_filled
 from random import choice, randint
 from src import settings, utils
 
@@ -88,7 +88,7 @@ class ProjectileEmitter:
 
     def __init__(self):
         self.projectile_list = []
-        self.full_wt, self.full_ht = get_display_size()
+        self.full_wt, self.full_ht = utils.get_display_size()
 
     def get_projectile_list(self):
         return self.projectile_list
@@ -142,7 +142,7 @@ class ProjectileEmitter:
 
 class RandomTargetPoint:
     def __init__(self):
-        self.full_wt, self.full_ht = get_display_size()
+        self.full_wt, self.full_ht = utils.get_display_size()
         self.pos = {'x': randint(0, self.full_wt), 'y': randint(0, self.full_ht)}
 
     @staticmethod

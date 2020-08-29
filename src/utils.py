@@ -1,6 +1,7 @@
 from math import dist, degrees, atan2
 from src import objects
-from arcade import draw_text, get_display_size
+from arcade import draw_text
+import pyglet
 
 """
 
@@ -42,5 +43,30 @@ def get_deg_between(p1, p2):
 
 def render_score(score):
     ht = get_display_size()[1]
-    size = ht / 20
-    draw_text(f'Score: {score}', 0,  ht - 2 * size, (255, 255, 255), size)
+    size = ht / 30
+    draw_text(f'Score: {score}', 0, ht - 2 * size, (255, 255, 255), size)
+
+
+def render_fs_disclaimer():
+    wt, ht = get_display_size()
+    size = ht / 30
+
+    draw_text(f'This game is meant to be played in full screen mode. Press F to toggle full screen.', wt / 6, ht - 2 * size,
+              (255, 255, 255), size)
+
+
+"""Copied directly from arcade 2.4 documentation for compilation convenience"""
+
+
+def get_display_size(screen_id: int = 0):
+    """Return the width and height of a monitor.
+
+    The size of the primary monitor is returned by default.
+
+    :param int screen_id: The screen number
+    :return: Tuple containing the width and height of the screen
+    :rtype: tuple
+    """
+    display = pyglet.canvas.Display()
+    screen = display.get_screens()[screen_id]
+    return screen.width, screen.height
