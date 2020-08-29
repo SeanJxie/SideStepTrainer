@@ -43,4 +43,4 @@ def get_deg_between(p1, p2):
 def render_score(score):
     ht = get_display_size()[1]
     size = ht / 20
-    draw_text(f'Score: {score}', 0,  ht - 2 * size, (255, 255, 255,), size)
+    draw_text(f'Score: {score}', 0,  ht - 2 * size, (255, 255, 255), size)
