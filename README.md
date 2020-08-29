@@ -1,7 +1,6 @@
 # SideStepTrainer
 
-Practice side-step reaction time for better League of Legends gameplay.
-
+Just side step. No fancy effects or noises.
 
 To install, click: https://github.com/SeanJxie/SideStepTrainer/blob/master/compiled/SideStepTrainer.exe?raw=true.
 
