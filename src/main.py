@@ -55,7 +55,7 @@ class SideStepTrainerProgram(Window):  # Child class of arcade's Window class wi
         if self.target.detect_collision(self.controlled_player):
             self.points += 1
 
-            if self.fire_interval <= settings.GAME['MIN_INIT_PROJECTILE_FIRE_FRAME_INTERVAL']:
+            if self.fire_interval >= settings.GAME['MIN_INIT_PROJECTILE_FIRE_FRAME_INTERVAL']:
                 self.fire_interval -= settings.GAME['FIRE_FRAME_INTERVAL_STEP']
 
         self.controlled_player.move_to(self.mouse_pos, delta_time)  # Move to the current clicked mouse position
