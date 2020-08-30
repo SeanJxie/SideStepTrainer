@@ -13,4 +13,4 @@ It's simple:
  Difficulty will increase based on your score. Have fun!
 
 # Development
-- Difficulty balances will be made in the future.
+- Difficulty balances and visual changes will be made in the future.
