@@ -14,3 +14,4 @@ It's simple:
 
 # Development
 - Difficulty balances and visual changes will be made in the future.
+- Fixed difficulty progression bug
