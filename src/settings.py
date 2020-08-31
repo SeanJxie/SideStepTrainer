@@ -7,7 +7,8 @@ Settings for the game
 WINDOW = {
     'WIDTH': 800,
     'HEIGHT': 800,
-    'TITLE': 'SideStep Trainer'
+    'TITLE': 'SideStep Trainer',
+    'BG_COL': (0, 0, 0)  # Black
 }
 
 PLAYER = {
@@ -19,8 +20,8 @@ PLAYER = {
 }
 
 PROJECTILE = {
-    'RADIUS_RANGE': (20, 50),
-    'SPEED_RANGE': (20, 40),
+    'RADIUS_RANGE': (20, 40),
+    'SPEED_RANGE': (20, 35),
     'DEG_OFFSET_RANGE': (-2, 2),  # The smaller the range, the more accurate the projectiles
     'COL': (255, 0, 0)  # Red
 }
@@ -34,4 +35,8 @@ GAME = {
     'INIT_PROJECTILE_FIRE_FRAME_INTERVAL': 500,
     'MIN_INIT_PROJECTILE_FIRE_FRAME_INTERVAL': 50,
     'FIRE_FRAME_INTERVAL_STEP': 10
+}
+
+GUI = {
+    'CURSOR_TARGET_SIZE': 20
 }

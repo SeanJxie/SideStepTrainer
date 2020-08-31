@@ -1,7 +1,9 @@
 from math import dist, degrees, atan2
-from src import objects
-from arcade import draw_text
+
 import pyglet
+from arcade import draw_text, draw_line
+
+from src import objects
 
 """
 
@@ -53,6 +55,17 @@ def render_fs_disclaimer():
 
     draw_text(f'This game is meant to be played in full screen mode. Press F to toggle full screen.', wt / 6, ht - 2 * size,
               (255, 255, 255), size)
+
+
+def render_mouse_target(pos, size=10):
+    if pos != {}:
+        top = pos['x'], pos['y'] + size / 2
+        bot = pos['x'], pos['y'] - size / 2
+        left = pos['x'] - size / 2, pos['y']
+        right = pos['x'] + size / 2, pos['y']
+
+        draw_line(top[0], top[1], bot[0], bot[1], (255, 255, 255), size / 4)
+        draw_line(left[0], left[1], right[0], right[1], (255, 255, 255), size / 4)
 
 
 """Copied directly from arcade 2.4 documentation for compilation convenience"""
