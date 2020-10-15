@@ -11,12 +11,3 @@ It's simple:
  - Don't get hit by the projectiles (red circle)
  
  Difficulty will increase based on your score. Have fun!
-
-# New Features
-- Added cursor target crosshair
-- Balanced difficulty
-
-# Development
-- Difficulty balances and visual changes will be made in the future.
-- Fixed difficulty progression bug
-
