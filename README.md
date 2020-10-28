@@ -2,7 +2,7 @@
 
 Just side step. No fancy effects or noises.
 
-To install, click: https://github.com/SeanJxie/SideStepTrainer/blob/master/compiled/SSTrainer.exe?raw=true
+To install, click: https://github.com/SeanJxie/SideStepTrainer/blob/master/compiled/SideStepTrainer.exe?raw=true
 
 # How to Play?
 It's simple:
