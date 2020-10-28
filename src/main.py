@@ -1,4 +1,4 @@
-from arcade import start_render, Window, run, MOUSE_BUTTON_RIGHT, key, set_background_color
+import arcade as acd
 from src import settings, objects, utils
 
 """
@@ -8,10 +8,10 @@ A program for League of Legends style side step training
 """
 
 
-class SideStepTrainerProgram(Window):  # Child class of arcade's Window class with a bunch of helpful methods
+class SideStepTrainerProgram(acd.Window):  # Child class of arcade's Window class with a bunch of helpful methods
     def __init__(self):
         super().__init__(settings.WINDOW['WIDTH'], settings.WINDOW['HEIGHT'], settings.WINDOW['TITLE'], fullscreen=True)
-        set_background_color(settings.WINDOW['BG_COL'])
+        acd.set_background_color(settings.WINDOW['BG_COL'])
 
         # Initialize player
         self.controlled_player = objects.Player(
@@ -40,7 +40,7 @@ class SideStepTrainerProgram(Window):  # Child class of arcade's Window class wi
         self.target.set_random_pos()
 
     def on_draw(self):  # Main render loop
-        start_render()
+        acd.start_render()
 
         # Lowest layer
         utils.render_mouse_target(self.mouse_pos, size=settings.GUI['CURSOR_TARGET_SIZE'])
@@ -76,15 +76,15 @@ class SideStepTrainerProgram(Window):  # Child class of arcade's Window class wi
         self.frame_count += 1
 
     def on_mouse_press(self, x: float, y: float, button: int, modifiers: int):
-        if button == MOUSE_BUTTON_RIGHT:  # Set new mouse click position on right button click
+        if button == acd.MOUSE_BUTTON_RIGHT:  # Set new mouse click position on right button click
             self.mouse_pos.update({'x': x, 'y': y})
 
     def on_key_press(self, symbol: int, modifiers: int):
-        if symbol == key.F:  # Toggle full screen
+        if symbol == acd.key.F:  # Toggle full screen
             self.set_fullscreen(not self.fullscreen)
 
 
 # Run program
 if __name__ == '__main__':
     SideStepTrainerProgram()
-    run()
+    acd.run()

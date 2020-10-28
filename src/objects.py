@@ -1,6 +1,8 @@
-from math import sin, cos, atan2, degrees, radians
-from arcade import draw_circle_filled
+import math
+import arcade as acd
 from random import choice, randint
+
+
 from src import settings, utils
 
 """
@@ -34,17 +36,17 @@ class Player:
                 dx = pos['x'] - self.pos['x']
                 dy = pos['y'] - self.pos['y']
 
-                rad = atan2(dy, dx)
-                self.deg = degrees(rad)
+                rad = math.atan2(dy, dx)
+                self.deg = math.degrees(rad)
 
-                self.pos['x'] += self.move_speed * cos(rad) * dt * 60  # Convert to seconds
-                self.pos['y'] += self.move_speed * sin(rad) * dt * 60
+                self.pos['x'] += self.move_speed * math.cos(rad) * dt * 60  # Convert to seconds
+                self.pos['y'] += self.move_speed * math.sin(rad) * dt * 60
 
     def flash(self):
         pass
 
     def render(self):
-        draw_circle_filled(self.pos['x'], self.pos['y'], self.radius, self.col)
+        acd.draw_circle_filled(self.pos['x'], self.pos['y'], self.radius, self.col)
 
 
 class Projectile:
@@ -61,13 +63,13 @@ class Projectile:
         return self.radius
 
     def move(self, dt):
-        rad = radians(self.deg)
+        rad = math.radians(self.deg)
 
-        self.pos['x'] += self.move_speed * cos(rad) * dt * 60  # Convert to seconds
-        self.pos['y'] += self.move_speed * sin(rad) * dt * 60
+        self.pos['x'] += self.move_speed * math.cos(rad) * dt * 60  # Convert to seconds
+        self.pos['y'] += self.move_speed * math.sin(rad) * dt * 60
 
     def render(self):
-        draw_circle_filled(self.pos['x'], self.pos['y'], self.radius, settings.PROJECTILE['COL'])
+        acd.draw_circle_filled(self.pos['x'], self.pos['y'], self.radius, settings.PROJECTILE['COL'])
 
 
 class ProjectileEmitter:
@@ -147,7 +149,7 @@ class RandomTargetPoint:
         self.pos = {'x': randint(0, self.full_wt), 'y': randint(0, self.full_ht)}
 
     def render(self):
-        draw_circle_filled(self.pos['x'], self.pos['y'], settings.TARGET['RADIUS'], settings.TARGET['COL'])
+        acd.draw_circle_filled(self.pos['x'], self.pos['y'], settings.TARGET['RADIUS'], settings.TARGET['COL'])
 
     def detect_collision(self, player):
         if utils.detect_collision(player, self):
