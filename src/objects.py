@@ -11,12 +11,6 @@ Classes for in game objects
 
 
 class Player:
-    """
-
-    Like Lee Sin or someone idk
-
-    """
-
     def __init__(self, init_pos, move_speed, radius, col):
         self.pos = init_pos
         self.move_speed = move_speed
@@ -46,17 +40,14 @@ class Player:
                 self.pos['x'] += self.move_speed * cos(rad) * dt * 60  # Convert to seconds
                 self.pos['y'] += self.move_speed * sin(rad) * dt * 60
 
+    def flash(self):
+        pass
+
     def render(self):
         draw_circle_filled(self.pos['x'], self.pos['y'], self.radius, self.col)
 
 
 class Projectile:
-    """
-
-    Like Lux root or something idk
-
-    """
-
     def __init__(self, init_pos, init_deg, move_speed, radius):
         self.pos = init_pos
         self.deg = init_deg  # Using degrees because it's easier for me to read :D

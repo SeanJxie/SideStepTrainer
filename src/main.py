@@ -41,30 +41,34 @@ class SideStepTrainerProgram(Window):  # Child class of arcade's Window class wi
 
     def on_draw(self):  # Main render loop
         start_render()
+
+        # Lowest layer
+        utils.render_mouse_target(self.mouse_pos, size=settings.GUI['CURSOR_TARGET_SIZE'])
+
         # Player is rendered "under" projectiles so that the player is consumed by the projectile and not the other ways around
         self.target.render()
         self.controlled_player.render()
         self.projectile_emitter.render_existing_projectiles()
 
-        utils.render_mouse_target(self.mouse_pos, size=settings.GUI['CURSOR_TARGET_SIZE'])
+        # Highest layer
         utils.render_score(self.points)
         utils.render_fs_disclaimer()
 
     def on_update(self, delta_time: float):  # Main update loop
-        if utils.detect_collision(self.controlled_player, self.projectile_emitter.get_projectile_list()):
+        if utils.detect_collision(self.controlled_player, self.projectile_emitter.get_projectile_list()):  # Does
             self.reset()
 
         if self.target.detect_collision(self.controlled_player):
             self.points += 1
 
-            if self.fire_interval > settings.GAME['MIN_INIT_PROJECTILE_FIRE_FRAME_INTERVAL']:
+            if self.fire_interval >= settings.GAME['MIN_INIT_PROJECTILE_FIRE_FRAME_INTERVAL']:
                 self.fire_interval -= settings.GAME['FIRE_FRAME_INTERVAL_STEP']
 
         self.controlled_player.move_to(self.mouse_pos, delta_time)  # Move to the current clicked mouse position
         self.projectile_emitter.move_existing_projectiles(delta_time)  # Move all existing projectiles
 
         # When frame count reaches a given number, fire a projectile at the player and reset frame count
-        if self.frame_count == self.fire_interval:
+        if self.frame_count > self.fire_interval:  # Cannot get to 0 if they are equal
             self.projectile_emitter.fire_projectile_from_random_side(self.controlled_player.get_pos())
             self.frame_count = -1
 
