@@ -6,7 +6,7 @@ from src import settings, objects, utils
 A program for League of Legends style side step training 
 
 """
-
+sadsaaaaaasadsaaaaaasadsaaaaaa
 
 class SideStepTrainerProgram(acd.Window):  # Child class of arcade's Window class with a bunch of helpful methods
     def __init__(self):
